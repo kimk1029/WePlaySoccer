@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -16,25 +16,39 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+const {height, width} = Dimensions.get("window");
+
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <StatusBar barStyle="light-content"></StatusBar>
+        <Text style={styles.title}>WePlay</Text>
+        <Text style={styles.welcome}>Welcome to React 2Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
+        <View style={styles.card}>
+        <TextInput style={styles.input} placeholder={"New"}></TextInput>
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  title: {
+    color : "white",
+    fontSize : 30,
+    marginTop : 50,
+    fontWeight : "200",
+    marginBottom : 30
+
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'black',
   },
   welcome: {
     fontSize: 20,
@@ -46,4 +60,26 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  card :{
+    backgroundColor : "white",
+    flex: 1,
+    width: width - 30,
+    borderRadius: 20,
+    ...Platform.select({
+      ios:{
+        shadowColor:"red",
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        shadowOffset: {
+          height: -1,
+          width: 0
+        }
+
+      },
+      android: {
+        elevation: 5
+      }
+    })
+   
+  }
 });
