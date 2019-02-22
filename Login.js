@@ -13,35 +13,34 @@ const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
     'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button f1or dev menu',
+    'Shake or press menu button for dev menu',
 });
 
-const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
+const {height, width} = Dimensions.get("window");
 
-export default class App extends Component {
+export default class Login extends Component {
   render() {
+
+    const fill = 'rgb(134, 65, 244)';
+    const data   = [ 50, 10, 40, 95, -4, -24, null, 85, undefined, 0, 35, 53, -53, 24, 50, -20, -80 ];
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content"></StatusBar>
         <Text style={styles.title}>WePlay</Text>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
+        <Text style={styles.welcome}>Welcome to React 2Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <Text style={styles.joinEmail}>{joinEmail}</Text>
+        <View style={styles.card}>
+        <TextInput style={styles.input} placeholder={"New123"}></TextInput>
+        </View>
       </View>
     );
   }
 }
 
-
 const styles = StyleSheet.create({
-  joinEmail: {
-      color : "grey",
-      textAlign: "center",
-      marginTop : 180
-  },
   title: {
-    color : "black",
+    color : "white",
     fontSize : 30,
     marginTop : 50,
     fontWeight : "200",
@@ -64,5 +63,26 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  card :{
+    backgroundColor : "white",
+    flex: 1,
+    width: width - 30,
+    borderRadius: 20,
+    ...Platform.select({
+      ios:{
+        shadowColor:"red",
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        shadowOffset: {
+          height: -1,
+          width: 0
+        }
 
+      },
+      android: {
+        elevation: 5
+      }
+    })
+   
+  }
 });
