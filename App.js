@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions} from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions,Image} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -22,7 +22,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
+        
         <StatusBar barStyle="light-content"></StatusBar>
+        <Image style={{ width:'90%',resizeMode:'contain'}}source={require('./img/bitmap.png')} />
+        <Image style={{ width:'100%',resizeMode:'contain'}}source={require('./img/logo2x.png')} />
         <Text style={styles.title}>WePlay</Text>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
@@ -38,14 +41,14 @@ const styles = StyleSheet.create({
   joinEmail: {
       color : "grey",
       textAlign: "center",
-      marginTop : 180
+      marginTop : 40
   },
   title: {
     color : "black",
     fontSize : 30,
-    marginTop : 50,
+    marginTop : 10,
     fontWeight : "200",
-    marginBottom : 30
+    marginBottom : 0
 
   },
   container: {
@@ -57,12 +60,12 @@ const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 0,
   },
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 40,
   },
 
 });
