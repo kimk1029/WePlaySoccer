@@ -10,10 +10,10 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions,Image} from 'react-native';
 
 const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+  ios: 'IOS\n version',
   android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button f1or dev menu',
+    'android\n' +
+    'version'
 });
 
 const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
@@ -22,13 +22,9 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        
         <StatusBar barStyle="light-content"></StatusBar>
-        <Image style={{ width:'90%',resizeMode:'contain'}}source={require('./img/bitmap.png')} />
-        <Image style={{ width:'100%',resizeMode:'contain'}}source={require('./img/logo2x.png')} />
-        <Text style={styles.title}>WePlay</Text>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Image style={{ width:'100%',resizeMode:'contain'}}source={require('./img/loginpage/bitmap2x.png')} />
+        <Image style={{ width:'100%',resizeMode:'contain'}}source={require('./img/loginpage/logo2x.png')} />
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
       </View>
