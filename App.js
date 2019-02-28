@@ -22,12 +22,12 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar barStyle="light-content"></StatusBar>
-        <Image style={{}}source={require('./img/loginpage/bitmap2x.png')} />
-        <Image style={{}}source={require('./img/loginpage/logo2x.png')} />
-        <Image style={imgStyle.facebookJoinBtn}source={require('./img/loginpage/facebook2x.png')} />
-        <Image style={imgStyle.naverJoinBtn}source={require('./img/loginpage/naver2x.png')} />
-        <Image style={imgStyle.kakaoJoinBtn}source={require('./img/loginpage/kakao2x.png')} />
+      <StatusBar barStyle="light-content"></StatusBar>
+        <Image style={{}}source={require('./img/loginpage/bitmap.png')} />
+        <Image style={{}}source={require('./img/loginpage/logo.png')} />
+        <Image style={btnImg.facebookJoinBtn}source={require('./img/loginpage/facebook.png')} />
+        <Image style={btnImg.naverJoinBtn}source={require('./img/loginpage/naver.png')} />
+        <Image style={btnImg.kakaoJoinBtn}source={require('./img/loginpage/kakao.png')} />
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
       </View>
@@ -35,7 +35,7 @@ export default class App extends Component {
   }
 }
 
-const imgStyle = StyleSheet.create({
+const btnImg = StyleSheet.create({
   facebookJoinBtn: {
      
   },
@@ -48,27 +48,25 @@ const imgStyle = StyleSheet.create({
 
 })
 
+const logo = StyleSheet.create({
+
+})
+
 const styles = StyleSheet.create({
 
   joinEmail: {
       color : "grey",
       textAlign: "center"
   },
-  title: {
-    color : "black",
-    fontSize : 30,
-    fontWeight : "200"
 
-  },
   container: {
-    justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-  },
+
   instructions: {
     textAlign: 'center',
     color: '#333333',
