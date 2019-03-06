@@ -10,10 +10,9 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions,Image} from 'react-native';
 
 const instructions = Platform.select({
-  ios: 'IOS\n version',
+  ios: 'IOS',
   android:
-    'android\n' +
-    'version'
+    'android'
 });
 
 const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
@@ -23,11 +22,11 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
       <StatusBar barStyle="light-content"></StatusBar>
-        <Image style={{}}source={require('./img/loginpage/bitmap.png')} />
-        <Image style={{}}source={require('./img/loginpage/logo.png')} />
-        <Image style={btnImg.facebookJoinBtn}source={require('./img/loginpage/facebook.png')} />
-        <Image style={btnImg.naverJoinBtn}source={require('./img/loginpage/naver.png')} />
-        <Image style={btnImg.kakaoJoinBtn}source={require('./img/loginpage/kakao.png')} />
+        <Image style={logo.logoIcon}source={require('./img/loginpage/bitmap2x.png')} />
+        <Image style={logo.logoTxt}source={require('./img/loginpage/logo2x.png')} />
+        <Image style={btnImg.facebookJoinBtn}source={require('./img/loginpage/facebook2x.png')}onPress={() => alert('로그인 버튼')} />
+        <Image style={btnImg.naverJoinBtn}source={require('./img/loginpage/naver2x.png')} />
+        <Image style={btnImg.kakaoJoinBtn}source={require('./img/loginpage/kakao2x.png')} />
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
       </View>
@@ -35,23 +34,35 @@ export default class App extends Component {
   }
 }
 
-const btnImg = StyleSheet.create({
-  facebookJoinBtn: {
-     
+
+
+const logo = StyleSheet.create({
+  logoIcon : {
+    marginTop : 110
   },
-  naverJoinBtn :{
-     
-  },
-  kakaoJoinBtn:{
-    
+  logoTxt : {
+    marginTop : 30,
+    marginBottom : 200,
+    height : 23
   }
 
 })
-
-const logo = StyleSheet.create({
+const btnImg = StyleSheet.create({
+  facebookJoinBtn: {
+    height : 48,
+    marginBottom : 10,
+    
+  },
+  naverJoinBtn :{
+    height : 48,
+    marginBottom : 10
+  },
+  kakaoJoinBtn:{
+    height : 48,
+    marginBottom : 10
+  }
 
 })
-
 const styles = StyleSheet.create({
 
   joinEmail: {
@@ -63,13 +74,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start'
+    flexDirection: 'column'
   },
 
   instructions: {
     textAlign: 'center',
     color: '#333333',
+    marginTop: 45
   },
 
 });
