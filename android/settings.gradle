@@ -1,4 +1,6 @@
 // 외부 모듈을 우리의 프로젝트에 include할 수 있도록 세팅하는 곳, 만약 외부 모듈을 이미 사용했다면 다양한 include들이 있을것.
+include ':react-native-gesture-handler'
+project(':react-native-gesture-handler').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-gesture-handler/android')
 // 또한 1, 3번 줄은 기본적으로 세팅되어있는 사항이니 프로젝트 이름을 다르게 하였으면 변경하실 필요 없다.
 //1번라인
 rootProject.name = 'WePlaySoccer'
