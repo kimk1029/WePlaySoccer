@@ -7,8 +7,8 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, Button,TextInput, Dimensions,Image,TouchableOpacity} from 'react-native';
-
+import {Platform, StyleSheet, Text, View, StatusBar, Button,TextInput, Dimensions,Image,TouchableOpacity,NativeButton} from 'react-native';
+import RNKakaoLogins from 'react-native-kakao-logins';
 const instructions = Platform.select({
   ios: 'IOS',
   android:
@@ -17,7 +17,49 @@ const instructions = Platform.select({
 
 const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
 
-export default class App extends Component {
+export default class Main extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isKakaoLogging: false,
+      token: 'token has not fetched',
+    };
+  }
+ // 카카오 로그인 시작.
+ kakaoLogin() {
+  console.log('   kakaoLogin   ');
+  RNKakaoLogins.login((err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    Alert.alert('result', result);
+  });
+}
+
+kakaoLogout() {
+  console.log('   kakaoLogout   ');
+  RNKakaoLogins.logout((err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    Alert.alert('result', result);
+  });
+}
+
+// 로그인 후 내 프로필 가져오기.
+getProfile() {
+  console.log('getKakaoProfile');
+  RNKakaoLogins.getProfile((err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    Alert.alert('result', result);
+  });
+}
+
   render() {
     return (
       <View Style={styles.container}>
@@ -25,7 +67,13 @@ export default class App extends Component {
         <Image style={logo.logoIcon}source={require('../img/loginpage/bitmap2x.png')} />
         <Image style={logo.logoTxt}source={require('../img/loginpage/logo2x.png')} />
         <Image style={btnImg.facebookJoinBtn}source={require('../img/loginpage/facebook2x.png')} />
-
+        <NativeButton
+            isLoading={this.state.isKakaoLogging}
+            onPress={() => this.kakaoLogin()}
+            activeOpacity={0.5}
+            style={styles.kakaoJoinBtn}
+          >LOGIN</NativeButton>
+          <Text>{this.state.token}</Text>
         <TouchableOpacity onPress={()=>{
             this.props.navigation.navigate('JoinMember')
         }}><Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />

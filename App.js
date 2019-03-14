@@ -8,7 +8,8 @@ const AppNavigator = createStackNavigator({
   Main: Main,
   JoinMember: JoinMember,
   }, {
-    initialRouteName: "Main"
+    initialRouteName: "Main",
+    headerMode : 'Main'
   });
 
 export default createAppContainer(AppNavigator);

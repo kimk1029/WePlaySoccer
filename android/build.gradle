@@ -32,7 +32,12 @@ allprojects {
     }
 }
 
-
+subprojects {
+repositories {
+    mavenCentral()
+    maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+  }
+}
 task wrapper(type: Wrapper) {
     gradleVersion = '4.4'
     distributionUrl = distributionUrl.replace("bin", "all")
