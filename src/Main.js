@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, Button,TextInput, Dimensions,Image,TouchableOpacity,NativeButton} from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar, Button,TextInput, Dimensions,Image,TouchableOpacity,NativeButton ,Alert} from 'react-native';
 import RNKakaoLogins from 'react-native-kakao-logins';
 const instructions = Platform.select({
   ios: 'IOS',
@@ -31,6 +31,7 @@ export default class Main extends Component {
   RNKakaoLogins.login((err, result) => {
     if (err) {
       console.log(err);
+      Alert.alert('result', err);
       return;
     }
     Alert.alert('result', result);
@@ -67,16 +68,9 @@ getProfile() {
         <Image style={logo.logoIcon}source={require('../img/loginpage/bitmap2x.png')} />
         <Image style={logo.logoTxt}source={require('../img/loginpage/logo2x.png')} />
         <Image style={btnImg.facebookJoinBtn}source={require('../img/loginpage/facebook2x.png')} />
-        <NativeButton
-            isLoading={this.state.isKakaoLogging}
-            onPress={() => this.kakaoLogin()}
-            activeOpacity={0.5}
-            style={styles.kakaoJoinBtn}
-          >LOGIN</NativeButton>
-          <Text>{this.state.token}</Text>
-        <TouchableOpacity onPress={()=>{
-            this.props.navigation.navigate('JoinMember')
-        }}><Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />
+        {/* <NativeButton>ddd</NativeButton> */}
+         
+        <TouchableOpacity onPress={() => this.kakaoLogin()}><Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
         
         <Image style={btnImg.kakaoJoinBtn}source={require('../img/loginpage/kakao2x.png')} />

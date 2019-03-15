@@ -17,7 +17,7 @@ const instructions = Platform.select({
 
 const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
 
-export default class Sex extends Component {
+export default class JoinMember extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -30,51 +30,12 @@ export default class Sex extends Component {
 
 
 
-const logo = StyleSheet.create({
-  logoIcon : {
-    marginTop : 110
-  },
-  logoTxt : {
-    marginTop : 30,
-    marginBottom : 200,
-    height : 23
-  }
-
-})
-const btnImg = StyleSheet.create({
-  facebookJoinBtn: {
-    height : 48,
-    marginBottom : 10,
-    
-  },
-  naverJoinBtn :{
-    height : 48,
-    marginBottom : 10
-  },
-  kakaoJoinBtn:{
-    height : 48,
-    marginBottom : 10
-  }
-
-})
 const styles = StyleSheet.create({
-
-  joinEmail: {
-      color : "grey",
-      textAlign: "center"
-  },
-
   container: {
     alignItems: 'center',
     backgroundColor: 'white',
     flex: 1,
     flexDirection: 'column'
-  },
-
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginTop: 45
-  },
+  }
 
 });
