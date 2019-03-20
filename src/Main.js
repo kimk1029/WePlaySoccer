@@ -69,11 +69,13 @@ getProfile() {
         <Image style={logo.logoTxt}source={require('../img/loginpage/logo2x.png')} />
         <Image style={btnImg.facebookJoinBtn}source={require('../img/loginpage/facebook2x.png')} />
         {/* <NativeButton>ddd</NativeButton> */}
-         
-        <TouchableOpacity onPress={() => this.kakaoLogin()}><Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('JoinMember')}>
+          <Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
-        
-        <Image style={btnImg.kakaoJoinBtn}source={require('../img/loginpage/kakao2x.png')} />
+
+        <TouchableOpacity onPress={() => this.kakaoLogin()}>
+          <Image style={btnImg.kakaoJoinBtn}source={require('../img/loginpage/kakao2x.png')} />
+          </TouchableOpacity>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
       </View>
