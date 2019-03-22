@@ -27,13 +27,15 @@ export default class Main extends Component {
   }
  // 카카오 로그인 시작.
  kakaoLogin() {
-  console.log('   kakaoLogin   ');
+  console.log('   kakaoLogin-------------->   ');
   RNKakaoLogins.login((err, result) => {
     if (err) {
+      console.log("&&&^^^");
       console.log(err);
-      Alert.alert('result', err);
+      Alert.alert('result@@@', err);
       return;
     }
+    console.log("***(((");
     Alert.alert('result', result);
   });
 }
