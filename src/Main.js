@@ -87,7 +87,8 @@ getProfile() {
 
 const logo = StyleSheet.create({
   logoIcon : {
-    marginTop : 110
+    marginTop : 110,
+    alignItems: "center"
   },
   logoTxt : {
     marginTop : 30,
