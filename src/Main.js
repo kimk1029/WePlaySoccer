@@ -75,7 +75,7 @@ getProfile() {
 
         <TouchableOpacity onPress={() => this.kakaoLogin()}>
           <Image style={btnImg.kakaoJoinBtn}source={require('../img/loginpage/kakao2x.png')} />
-          </TouchableOpacity>
+        </TouchableOpacity>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
       </View>

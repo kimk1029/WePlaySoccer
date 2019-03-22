@@ -7,14 +7,17 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions,Image,Button,Alert} from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar, TextInput, Dimensions,Image,Alert} from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const instructions = Platform.select({
   ios: 'IOS',
   android:
     'android'
 });
+
 
 const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
 
@@ -28,6 +31,8 @@ export default class JoinMember extends Component {
       age: '1989(30)'
    };
   }
+  
+
   render() {
     return (
       <View style={styles.container}>
@@ -65,21 +70,19 @@ export default class JoinMember extends Component {
             value={this.state.age}
         />
 
-        <Button 
-          title ="확인"
-          onPress = {Alert.alert("222222222")}
-          color ="rgb(44, 220, 112)"
-          accessibilityLabel="Learn more about this purple button"
-          style={styles.button}
-          />
-
-        <Button 
-          title ="취소"
-          onPress = {Alert.alert("222222222")}
-          color ='rgb(170, 170, 170)'
-          accessibilityLabel="Learn more about this purple button"
-          style={styles.button}
-          />
+       
+      <View style={{flexDirection:'row'}}>
+        <Button
+          title="취소"
+          buttonStyle={styles.cancelBtnStyle}
+          onPress={() => this.props.navigation.navigate('Main')}
+        />
+        <Button
+          title="확인"
+          buttonStyle={styles.confirmBtnStyle}
+          onPress={()=>{alert(this.state)}}
+        />
+        </View>
 
        </View>
 
@@ -89,11 +92,18 @@ export default class JoinMember extends Component {
 }
 
 const styles = StyleSheet.create({
-  button :{
-    width: 17,
+  confirmBtnStyle: {
+    width:147,
     height: 48,
+    backgroundColor: "#2cdc70",
+    borderRadius: 4
+  },
+  cancelBtnStyle: {
+    width:147,
+    height: 48,
+    backgroundColor: "#aaaaaa",
     borderRadius: 4,
-    paddingTop: 40
+    marginRight : 18
   },
   cardTop:{
     backgroundColor : 'white',
@@ -127,8 +137,6 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: 'rgb(247, 250, 250)',
-    flex: 1,
-    flexDirection: 'column',
     paddingRight : 20,
     paddingLeft : 20
  
