@@ -15,7 +15,7 @@ const instructions = Platform.select({
     'android'
 });
 
-const joinEmail = 'Weplay를 처음 방문하셨다면? 회원가입을 클릭하세요' 
+const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요' 
 
 export default class Main extends Component {
   constructor(props) {
