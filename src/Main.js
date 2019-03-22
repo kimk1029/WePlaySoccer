@@ -31,10 +31,10 @@ export default class Main extends Component {
   RNKakaoLogins.login((err, result) => {
     if (err) {
       console.log(err);
-      Alert.alert('result', err);
+      Alert.alert('error');
       return;
     }
-    Alert.alert('result', result);
+    Alert.alert('result', result.token);
   });
 }
 
