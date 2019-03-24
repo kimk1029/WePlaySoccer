@@ -32,11 +32,18 @@ export default class Main extends Component {
     if (err) {
       console.log("&&&^^^");
       console.log(err);
+<<<<<<< HEAD
       Alert.alert('result@@@', err);
       return;
     }
     console.log("***(((");
     Alert.alert('result', result);
+=======
+      Alert.alert('error');
+      return;
+    }
+    Alert.alert('result', result.token);
+>>>>>>> origin/boyeon
   });
 }
 
