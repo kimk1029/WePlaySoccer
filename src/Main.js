@@ -9,13 +9,22 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, StatusBar, Button,TextInput, Dimensions,Image,TouchableOpacity,NativeButton ,Alert} from 'react-native';
 import RNKakaoLogins from 'react-native-kakao-logins';
+import { NaverLogin, getProfile } from 'react-native-naver-login';
+
 const instructions = Platform.select({
   ios: 'IOS',
   android:
     'android'
 });
 
-const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요' 
+const initials = {
+  kConsumerKey: '6xVHeurv4e1OPyxlG2bY',
+  kConsumerSecret: '4fUugu4Jan',
+  kServiceAppName: 'WePlaySoccer',
+  kServiceAppUrlScheme: '', // only for iOS
+};
+
+const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요';
 
 export default class Main extends Component {
   constructor(props) {
@@ -59,6 +68,28 @@ getProfile() {
     Alert.alert('result', result);
   });
 }
+  async fetchProfile() {
+    const profileResult = await getProfile(this.state.theToken);
+    console.log(profileResult);
+    if (profileResult.resultcode === '024') {
+      Alert.alert('로그인 실패', profileResult.message);
+      return;
+    }
+    this.props.navigation.navigate('Second', {
+      profileResult,
+    });
+  }
+
+  async naverLoginStart() {
+    console.log('  naverLoginStart  ed');
+    NaverLogin.login(initials, (err, token) => {
+      console.log(initials);
+      console.log(token);
+      if (err) {
+        // console.log(err);
+      }
+    });
+  }
 
   render() {
     return (
@@ -71,7 +102,9 @@ getProfile() {
         <TouchableOpacity onPress={() => this.props.navigation.navigate('JoinMember')}>
           <Image style={btnImg.naverJoinBtn}source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
-
+        <TouchableOpacity onPress={() => this.naverLoginStart()}>
+          <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => this.kakaoLogin()}>
           <Image style={btnImg.kakaoJoinBtn}source={require('../img/loginpage/kakao2x.png')} />
         </TouchableOpacity>
