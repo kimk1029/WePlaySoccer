@@ -3,6 +3,7 @@ package com.weplaysoccer;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.dooboolab.naverlogin.RNNaverLoginPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.dooboolab.kakaologins.RNKakaoLoginsPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -26,6 +27,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNNaverLoginPackage(),
             new VectorIconsPackage(),
             new RNKakaoLoginsPackage(),
             new RNGestureHandlerPackage()
