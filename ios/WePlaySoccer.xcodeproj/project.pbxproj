@@ -633,6 +633,7 @@
 				319586E34C2643E5A83EEDF6 /* libRNGestureHandler-tvOS.a */,
 				36622D7DC56547E7A40D69F0 /* libRNVectorIcons-tvOS.a */,
 				8A9EC08F03794B889E8AAB7A /* libRNNaverLogin.a */,
+				2362B9662247CB3F00AC32E8 /* KakaoOpenSDK.framework */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
