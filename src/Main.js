@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import RNKakaoLogins from 'react-native-kakao-logins';
 import {NaverLogin, getProfile} from 'react-native-naver-login';
-
+import FBSDK, { LoginManager } from 'react-native-fbsdk';
 const instructions = Platform.select({
     ios: 'IOS',
     android:
@@ -96,6 +96,17 @@ export default class Main extends Component {
             }
         });
     }
+    _fbAuth() {
+        LoginManager.logInWithReadPermissions(['public_profile']).then((result)=>{
+            if(result.isCancelled) {
+                console.log('Login was cancelled')
+            }else{
+                console.log(result.grantedPermissions.toString());
+            }
+        }, (err)=>{
+            console.log("err"+err);
+        })
+    }
 
     render() {
         return (
@@ -103,7 +114,11 @@ export default class Main extends Component {
                 <StatusBar barStyle="light-content"/>
                 <Image style={logo.logoIcon} source={require('../img/loginpage/bitmap2x.png')}/>
                 <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')}/>
+
+                <TouchableOpacity
+                    onPress={()=>this._fbAuth()}>
                 <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')}/>
+                </TouchableOpacity>
                 {/* <NativeButton>ddd</NativeButton> */}
                 <TouchableOpacity
                     onPress={() => this.props.navigation.navigate('JoinMember')}>
@@ -127,8 +142,7 @@ export default class Main extends Component {
 
 const logo = StyleSheet.create({
     logoIcon: {
-        marginTop: 110,
-        alignItems: "center"
+        marginTop: 80
     },
     logoTxt: {
         marginTop: 30,
