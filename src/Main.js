@@ -116,7 +116,7 @@ export default class Main extends Component {
                 <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')}/>
 
                 <TouchableOpacity
-                    onPress={()=>this._fbAuth()}>
+                    onPress={() =>this._fbAuth()}>
                 <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')}/>
                 </TouchableOpacity>
                 {/* <NativeButton>ddd</NativeButton> */}
