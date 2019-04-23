@@ -35,6 +35,26 @@
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+  <key>CFBundleURLTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb588465291653404</string>
+      </array>
+    </dict>
+  </array>
+  <key>FacebookAppID</key>
+  <string>588465291653404</string>
+  <key>FacebookDisplayName</key>
+  <string>WePlaySoccer</string>
+  <key>LSApplicationQueriesSchemes</key>
+  <array>
+    <string>fbapi</string>
+    <string>fb-messenger-api</string>
+    <string>fbauth2</string>
+    <string>fbshareextension</string>
+  </array>
 	<key>KAKAO_APP_KEY</key>
 	<string>0e61e7d5093b20dc487cbe0a73347c6a</string>
 	<key>LSApplicationQueriesSchemes</key>
