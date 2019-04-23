@@ -25,6 +25,10 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		23422E3E226EA70B00E64F21 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23422E0E226EA70B00E64F21 /* FBSDKLoginKit.framework */; };
+		23422E3F226EA70B00E64F21 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23422E0F226EA70B00E64F21 /* FBSDKShareKit.framework */; };
+		23422E40226EA70B00E64F21 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23422E10226EA70B00E64F21 /* FBSDKCoreKit.framework */; };
+		23422E41226EA70B00E64F21 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23422E11226EA70B00E64F21 /* Bolts.framework */; };
 		2362B9672247CB4000AC32E8 /* KakaoOpenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2362B9662247CB3F00AC32E8 /* KakaoOpenSDK.framework */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -412,6 +416,10 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WePlaySoccer/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WePlaySoccer/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		23422E0E226EA70B00E64F21 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		23422E0F226EA70B00E64F21 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		23422E10226EA70B00E64F21 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		23422E11226EA70B00E64F21 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		2362B9662247CB3F00AC32E8 /* KakaoOpenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KakaoOpenSDK.framework; path = "../../../Downloads/kakao-ios-sdk-1.11.2 (2)/KakaoOpenSDK.framework"; sourceTree = "<group>"; };
 		27A36B7DF183477DB6825FB7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* WePlaySoccer-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WePlaySoccer-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -471,14 +479,18 @@
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				58D294952251D15D0042DE0E /* KakaoMessageTemplate.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				23422E3E226EA70B00E64F21 /* FBSDKLoginKit.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
+				23422E41226EA70B00E64F21 /* Bolts.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
+				23422E3F226EA70B00E64F21 /* FBSDKShareKit.framework in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				58D294982251D15D0042DE0E /* KakaoLink.framework in Frameworks */,
+				23422E40226EA70B00E64F21 /* FBSDKCoreKit.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				B76E7FA2499942349948501D /* libRNGestureHandler.a in Frameworks */,
 				2362B9672247CB4000AC32E8 /* KakaoOpenSDK.framework in Frameworks */,
@@ -635,6 +647,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		23422E0D226EA70B00E64F21 /* FacebookSDK */ = {
+			isa = PBXGroup;
+			children = (
+				23422E10226EA70B00E64F21 /* FBSDKCoreKit.framework */,
+				23422E0E226EA70B00E64F21 /* FBSDKLoginKit.framework */,
+				23422E0F226EA70B00E64F21 /* FBSDKShareKit.framework */,
+				23422E11226EA70B00E64F21 /* Bolts.framework */,
+			);
+			path = FacebookSDK;
+			sourceTree = "<group>";
+		};
 		2362B92B2247CA2E00AC32E8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +710,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				23422E0D226EA70B00E64F21 /* FacebookSDK */,
 				58D294932251D15C0042DE0E /* KakaoCommon.framework */,
 				58D294942251D15D0042DE0E /* KakaoLink.framework */,
 				58D294912251D15C0042DE0E /* KakaoMessageTemplate.framework */,
@@ -1536,12 +1560,14 @@
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1567,11 +1593,13 @@
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/FacebookSDK",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
