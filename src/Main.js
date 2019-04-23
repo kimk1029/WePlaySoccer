@@ -25,7 +25,7 @@ const initials = {
     kConsumerKey: '6xVHeurv4e1OPyxlG2bY',
     kConsumerSecret: '4fUugu4Jan',
     kServiceAppName: 'WePlaySoccer',
-    kServiceAppUrlScheme: '.', // only for iOS
+    kServiceAppUrlScheme: 'naverlogin_weplaysoccer', // only for iOS
 };
 
 const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요';
