@@ -121,7 +121,7 @@ export default class Main extends Component {
                 </TouchableOpacity>
                 {/* <NativeButton>ddd</NativeButton> */}
                 <TouchableOpacity
-                    onPress={() => this.props.navigation.navigate('JoinMember')}>
+                    onPress={() => this.props.navigation.navigate('ComponentTest')}>
                     <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')}/>
                 </TouchableOpacity>
                 <TouchableOpacity

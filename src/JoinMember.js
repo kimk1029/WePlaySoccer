@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     paddingRight : 16
   },
   txt :{
-    fontFamily: "NotoSansCJKkr",
+    // fontFamily: "NotoSansCJKkr",
     fontSize: 12,
     fontWeight: "normal",
     fontStyle: "normal",
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
     width: 178,
     height: 54,
     
-    fontFamily: "NotoSansCJKkr",
+    // fontFamily: "NotoSansCJKkr",
     fontSize: 36,
     fontWeight: "bold",
     fontStyle: "normal",
