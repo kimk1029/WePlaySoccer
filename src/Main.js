@@ -109,12 +109,15 @@ export default class Main extends Component {
   }
 
 
+
   facebookLogin = async ()=>{
     const user = await utils.fbAuth();
     console.log(user);
     if(!!user.name){
       // this.props.history.push('/joinMember');
       this.props.navigation.navigate('JoinMember')
+
+ 
     }
   }
 
@@ -134,7 +137,7 @@ export default class Main extends Component {
         </TouchableOpacity>
         {/* <NativeButton>ddd</NativeButton> */}
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('JoinMember')}>
+          onPress={() => this.props.navigation.navigate('ComponentTest')}>
           <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
         <TouchableOpacity
