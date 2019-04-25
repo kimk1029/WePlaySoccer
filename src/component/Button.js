@@ -18,11 +18,18 @@ export default class Button extends Component {
   render() {
     const pad = this.props.padding? this.props.padding : 3;
     const fontSize = this.props.fontSize? this.props.fontSize : 16; 
-    const btnColor = this.props.type == 'cancel' ? '#f74b41': '#42f77b';
   
+    const btnColor = () =>{
+      if(this.props.type == 'cancel'){
+        return '#f74b41';
+      }else{
+        return '#42f77b';
+      }
+    }
+
     return (
       <TouchableOpacity
-        style={[styles.button,{padding: pad},{backgroundColor:btnColor}]}
+        style={[styles.button,{padding: pad},{backgroundColor:btnColor()},this.props.style]}
         onPress={this.props.onPress}>
         <Text style={[styles.btnTxt,{fontSize:fontSize}]}>
           {this.props.buttonText}

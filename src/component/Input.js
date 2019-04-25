@@ -20,14 +20,14 @@ export default class Button extends Component {
   render() {
     return (
       <TextInput
-        style={styles.inp}
+        style={[styles.inp,this.props.style]}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
       />
     );
   }
-  checkInput(){
-     alert(this.setState());
+  checkInput() {
+     
   }
 }
 

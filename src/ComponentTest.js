@@ -10,14 +10,26 @@ export default class ComponentTest extends Component {
 
     render() {
         return (
-            <View>
+            <View style={{marginTop : 50}}>
                 <Button
-                    buttonText={"확인"} type={'confirm'} ></Button>
+                    buttonText={"확인"} type={'confirm'} style={styles.btnStyle}></Button>
+
                 <Button
-                    buttonText={"취소"} type={'cancel'}></Button>
-                <Input></Input>
+                    buttonText={"취소"} type={'cancel'} style={styles.btnStyle}></Button>
+                    
+                <Input style={styles.iptStyle}></Input>
            
             </View>
         );
     }
 }
+
+const styles = StyleSheet.create({
+    btnStyle :{
+        width : 80
+    },
+    iptStyle :{
+        marginLeft : 90,
+        width : 180
+    }
+})
