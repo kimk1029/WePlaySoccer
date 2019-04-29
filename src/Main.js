@@ -115,7 +115,7 @@ export default class Main extends Component {
     console.log(user);
     if(!!user.name){
       // this.props.history.push('/joinMember');
-      this.props.navigation.navigate('JoinMember')
+      this.props.navigation.navigate('JoinMember');
 
  
     }
@@ -158,6 +158,7 @@ export default class Main extends Component {
 
 const logo = StyleSheet.create({
   logoIcon: {
+    
     marginTop: 80
   },
   logoTxt: {
@@ -193,10 +194,10 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    alignItems: 'center',
     backgroundColor: 'white',
-    flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   },
 
   instructions: {

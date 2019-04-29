@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity, Text, Dimensions, TextInput, View } from 'react-native';
 import { Fonts } from '../../Fonts'
+
+const NO_EMAIL = "올바른 이메일 형식이 아닙니다.";
+const VALIDATE_COLOR = "rgb(244, 39, 66)";
+const CONFIRM_COLOR = "rgb(37, 196, 99)";
+
 export default class Button extends Component {
   /**
    * 
@@ -25,14 +30,14 @@ export default class Button extends Component {
       <View>
         <TextInput
           style={[styles.inp, this.props.style, {
-            borderBottomColor: this.state.isTextValid ? "rgb(37, 196, 99)" : "rgb(244, 39, 66)"
+            borderBottomColor: this.state.isTextValid ?CONFIRM_COLOR : VALIDATE_COLOR
           }]}
           onChangeText={(text) => this.validate(text)}
           value={this.state.text}
         />
         <Text style={[this.props.style, styles.inpTxt, { fontFamily: Fonts.NotoSansCJKkrReg }, {
-          color: this.state.isTextValid ? "rgb(37, 196, 99)" : "rgb(244, 39, 66)"
-        }]}>{NOSTRING}</Text>
+          color: this.state.isTextValid ?CONFIRM_COLOR : VALIDATE_COLOR
+        }]}>{NO_EMAIL}</Text>
       </View>
 
     );
@@ -46,7 +51,7 @@ export default class Button extends Component {
     }
   }
 }
-const NOSTRING = "한글,영문만 입력가능합니다. (2~6자)";
+
 const styles = StyleSheet.create({
   inp: {
     height: 40,
