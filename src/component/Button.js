@@ -21,6 +21,7 @@ export default class Button extends Component {
   
     const btnColor = () =>{
       if(this.props.type == 'cancel'){
+        console.log("canc222el");
         return '#f74b41';
       }else{
         return '#42f77b';

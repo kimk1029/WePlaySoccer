@@ -1,4 +1,5 @@
 import FBSDK, { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { NaverLogin, getProfile } from 'react-native-naver-login';
 export const fbAuth = async () => {
     try {
         let result = null;
@@ -43,3 +44,47 @@ const _fbinitUser = async (token) => {
     }
 
 }
+
+
+const initials = {
+    kConsumerKey: '6xVHeurv4e1OPyxlG2bY',
+    kConsumerSecret: '4fUugu4Jan',
+    kServiceAppName: 'WePlaySoccer',
+    kServiceAppUrlScheme: 'naverlogin_weplaysoccer', // only for iOS
+  };
+  export const naverLoginStart = async () => {
+    console.log('  naverLoginStart');
+    NaverLogin.login(initials, (err, token) => {
+      console.log(initials);
+      console.log(token);
+      if (err) {
+        // console.log(err);
+      }
+      getNaverProgile(token);
+    });
+  }
+
+  
+  const getNaverProgile = async (token) =>{
+    let result = null;
+    try {
+      result = await getProfile(token)
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(result.response);
+    return result;
+  }
+
+  
+  const fetchProfile = async () => {
+    const profileResult = await getProfile(this.state.theToken);
+    console.log(profileResult);
+    if (profileResult.resultcode === '024') {
+      Alert.alert('로그인 실패', profileResult.message);
+      return;
+    }
+    this.props.navigation.navigate('Second', {
+      profileResult,
+    });
+  }

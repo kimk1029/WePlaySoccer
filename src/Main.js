@@ -13,7 +13,7 @@ import {
   Alert
 } from 'react-native';
 import RNKakaoLogins from 'react-native-kakao-logins';
-import { NaverLogin, getProfile } from 'react-native-naver-login';
+
 import * as utils from './LoginUtils';
 const instructions = Platform.select({
   ios: 'IOS',
@@ -21,12 +21,7 @@ const instructions = Platform.select({
     'android'
 });
 
-const initials = {
-  kConsumerKey: '6xVHeurv4e1OPyxlG2bY',
-  kConsumerSecret: '4fUugu4Jan',
-  kServiceAppName: 'WePlaySoccer',
-  kServiceAppUrlScheme: 'naverlogin_weplaysoccer', // only for iOS
-};
+
 
 const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요';
 export default class Main extends Component {
@@ -47,7 +42,8 @@ export default class Main extends Component {
         console.log(err);
         return;
       }
-      Alert.alert('result', result.token);
+     
+      this.getProfile();
     });
   }
 
@@ -70,54 +66,31 @@ export default class Main extends Component {
         console.log(err);
         return;
       }
+      this.props.navigation.navigate('JoinMember');
       console.log(result);
     });
   }
 
-  async fetchProfile() {
-    const profileResult = await getProfile(this.state.theToken);
-    console.log(profileResult);
-    if (profileResult.resultcode === '024') {
-      Alert.alert('로그인 실패', profileResult.message);
-      return;
+
+
+
+
+  naverLogin = async () => {
+    const user = await utils.naverLoginStart();
+    console.log(user);
+    if(!!user){
+      // this.props.history.push('/joinMember');
+      this.props.navigation.navigate('JoinMember');
     }
-    this.props.navigation.navigate('Second', {
-      profileResult,
-    });
-  }
 
-  async naverLoginStart() {
-    console.log('  naverLoginStart  ed');
-    NaverLogin.login(initials, (err, token) => {
-      console.log(initials);
-      console.log(token);
-      if (err) {
-        // console.log(err);
-      }
-      this.getNaverProgile(token);
-    });
   }
-  async getNaverProgile(token) {
-    let result = null;
-    try {
-      result = await getProfile(token)
-    } catch (err) {
-      console.log(err);
-    }
-    console.log(result);
-    return result;
-  }
-
-
 
   facebookLogin = async ()=>{
     const user = await utils.fbAuth();
     console.log(user);
-    if(!!user.name){
+    if(!!user){
       // this.props.history.push('/joinMember');
       this.props.navigation.navigate('JoinMember');
-
- 
     }
   }
 
@@ -141,7 +114,7 @@ export default class Main extends Component {
           <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => this.naverLoginStart()}>
+          onPress={() => this.naverLogin()}>
           <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
         </TouchableOpacity>
         <TouchableOpacity
