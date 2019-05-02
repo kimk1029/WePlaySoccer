@@ -42,7 +42,7 @@ export default class Main extends Component {
         console.log(err);
         return;
       }
-     
+
       this.getProfile();
     });
   }
@@ -71,58 +71,55 @@ export default class Main extends Component {
     });
   }
 
-
-
-
-
   naverLogin = async () => {
     const user = await utils.naverLoginStart();
     console.log(user);
-    if(!!user){
+    if (!!user) {
       // this.props.history.push('/joinMember');
       this.props.navigation.navigate('JoinMember');
     }
 
   }
 
-  facebookLogin = async ()=>{
+  facebookLogin = async () => {
     const user = await utils.fbAuth();
     console.log(user);
-    if(!!user){
+    if (!!user) {
       // this.props.history.push('/joinMember');
       this.props.navigation.navigate('JoinMember');
     }
   }
-
-
 
   render() {
 
     return (
-      <View Style={styles.container}>
+      <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
         <StatusBar barStyle="light-content" />
-        <Image style={logo.logoIcon} source={require('../img/loginpage/bitmap2x.png')} />
-        <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')} />
-
-        <TouchableOpacity
-          onPress={() => this.facebookLogin()}>
-          <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')} />
-        </TouchableOpacity>
-        {/* <NativeButton>ddd</NativeButton> */}
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('ComponentTest')}>
-          <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.naverLogin()}>
-          <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => this.kakaoLogin()}>
-          <Image style={btnImg.kakaoJoinBtn} source={require('../img/loginpage/kakao2x.png')} />
-        </TouchableOpacity>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Image style={logo.logoIcon} source={require('../img/loginpage/bitmap2x.png')} />
+          <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')} />
+        </View>
+        <View Style={{ alignItems: 'center', justifyContent: 'center' }}>
+          <TouchableOpacity
+            onPress={() => this.facebookLogin()}>
+            <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ComponentTest')}>
+            <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.naverLogin()}>
+            <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.kakaoLogin()}>
+            <Image style={btnImg.kakaoJoinBtn} source={require('../img/loginpage/kakao2x.png')} />
+          </TouchableOpacity>
+        </View>
         <Text style={styles.instructions}>{instructions}</Text>
         <Text style={styles.joinEmail}>{joinEmail}</Text>
+
       </View>
     );
   }
@@ -131,8 +128,8 @@ export default class Main extends Component {
 
 const logo = StyleSheet.create({
   logoIcon: {
-    
-    marginTop: 80
+
+    // marginTop: 80
   },
   logoTxt: {
     marginTop: 30,
@@ -162,19 +159,14 @@ const btnImg = StyleSheet.create({
 const styles = StyleSheet.create({
 
   joinEmail: {
-    color: "grey",
-    textAlign: "center"
+    color: "grey"
   },
 
   container: {
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    flex: 1,
+    backgroundColor: 'pink',
   },
-
   instructions: {
-    textAlign: 'center',
     color: '#333333',
     marginTop: 45
   },

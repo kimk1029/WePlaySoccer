@@ -60,7 +60,7 @@ const initials = {
       if (err) {
         // console.log(err);
       }
-      getNaverProgile(token);
+      return getNaverProgile(token);
     });
   }
 
@@ -76,7 +76,7 @@ const initials = {
     return result;
   }
 
-  
+
   const fetchProfile = async () => {
     const profileResult = await getProfile(this.state.theToken);
     console.log(profileResult);
