@@ -23,9 +23,11 @@
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb588465291653404</string>
+				<string>kakao0e61e7d5093b20dc487cbe0a73347c6a</string>
 			</array>
 		</dict>
 		<dict>
@@ -72,7 +74,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -94,6 +96,7 @@
 		<string>NotoSansCJKkr-Medium.otf</string>
 		<string>NotoSansCJKkr-Regular.otf</string>
 		<string>NotoSansCJKkr-Thin.otf</string>
+		<string>BMHANNAPro.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
