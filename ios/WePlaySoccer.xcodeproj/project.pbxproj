@@ -660,10 +660,10 @@
 		23422E0D226EA70B00E64F21 /* FacebookSDK */ = {
 			isa = PBXGroup;
 			children = (
-				23422E10226EA70B00E64F21 /* FBSDKCoreKit.framework */,
-				23422E0E226EA70B00E64F21 /* FBSDKLoginKit.framework */,
-				23422E0F226EA70B00E64F21 /* FBSDKShareKit.framework */,
 				23422E11226EA70B00E64F21 /* Bolts.framework */,
+				23422E0F226EA70B00E64F21 /* FBSDKShareKit.framework */,
+				23422E0E226EA70B00E64F21 /* FBSDKLoginKit.framework */,
+				23422E10226EA70B00E64F21 /* FBSDKCoreKit.framework */,
 			);
 			path = FacebookSDK;
 			sourceTree = "<group>";
@@ -1592,10 +1592,16 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)..\node_modules\neact-native-kakao-loginsios/**",
-					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-kakao-loginsios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-naver-login/ios/**",
-					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-fbsdkiosRCTFBSDK/**",
 				);
 				INFOPLIST_FILE = WePlaySoccer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1624,10 +1630,16 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-gesture-handler/ios/**",
-					"$(SRCROOT)..\node_modules\neact-native-kakao-loginsios/**",
-					"$(SRCROOT)..\node_modules\neact-native-vector-iconsRNVectorIconsManager",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-kakao-loginsios/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-vector-iconsRNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-naver-login/ios/**",
-					"$(SRCROOT)..\node_modules\neact-native-fbsdkiosRCTFBSDK/**",
+					"$(SRCROOT)..",
+					ode_modules,
+					"eact-native-fbsdkiosRCTFBSDK/**",
 				);
 				INFOPLIST_FILE = WePlaySoccer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

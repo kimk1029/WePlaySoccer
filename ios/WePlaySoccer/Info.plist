@@ -38,6 +38,14 @@
 				<string>naverlogin_weplaysoccer</string>
 			</array>
 		</dict>
+    <dict>
+      <key>CFBundleTypeRole</key>
+      <string>Editor</string>
+      <key>CFBundleURLSchemes</key>
+      <array>
+        <string>fb588465291653404</string>
+      </array>
+    </dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -57,6 +65,10 @@
 		<string>storylink</string>
 		<string>naversearchapp</string>
 		<string>naversearchthirdlogin</string>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
