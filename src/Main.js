@@ -96,21 +96,21 @@ export default class Main extends Component {
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
         <View style={logo.logoView}>
-          <Image style={logo.logoIcon} source={require('../img/loginpage/bitmap2x.png')} />
-          <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')} />
+          <Image style={logo.logoIcon} source={require('../assets/img/loginpage/bitmap.png')} />
+          <Image style={logo.logoTxt} source={require('../assets/img/loginpage/logo.png')} />
         </View>
         <View Style={btnImg.btnView}>
           <TouchableOpacity
             onPress={() => this.facebookLogin()}>
-            <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')} />
+            <Image style={btnImg.facebookJoinBtn} source={require('../assets/img/loginpage/facebook.png')} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.naverLogin()}>
-            <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+            <Image style={btnImg.naverJoinBtn} source={require('../assets/img/loginpage/naver.png')} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.kakaoLogin()}>
-            <Image style={btnImg.kakaoJoinBtn} source={require('../img/loginpage/kakao2x.png')} />
+            <Image style={btnImg.kakaoJoinBtn} source={require('../assets/img/loginpage/kakao.png')} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('ComponentTest')}>
@@ -145,8 +145,11 @@ const logo = StyleSheet.create({
 
 const btnImg = StyleSheet.create({
   btnView: {
+    height:'100%',
+    width : '100%',
     alignItems: 'center',
     justifyContent: 'center'
+    
   },
   facebookJoinBtn: {
     height: 48,
