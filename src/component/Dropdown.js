@@ -18,7 +18,7 @@ export default class Dropdown extends Component {
     this.setState({ user: user })
   }
   isYear = () => {
-    for (let index = 0; index < array.length; index++) {
+    for (let index = 1950; index < 2019; index++) {
       const element = array[index];
     }
   }
@@ -28,9 +28,10 @@ export default class Dropdown extends Component {
 
     return (
       <Picker selectedValue={this.state.user} onValueChange={this.updateUser}>
-        <Picker.Item label="Steve" value="steve" />
-        <Picker.Item label="Ellen" value="ellen" />
-        <Picker.Item label="Maria" value="maria" />
+        <Picker.Item label="1990" value="1990" />
+        <Picker.Item label="1989" value="1989" />
+        <Picker.Item label="1988" value="1988" />
+        <Picker.Item label="1987" value="1987" />
       </Picker>
     );
   }
