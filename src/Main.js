@@ -10,10 +10,10 @@ import {
   Image,
   TouchableOpacity,
   NativeButton,
-  Alert
+  Alert,
+  Button
 } from 'react-native';
 import RNKakaoLogins from 'react-native-kakao-logins';
-
 import * as utils from './LoginUtils';
 const instructions = Platform.select({
   ios: 'IOS',
@@ -93,32 +93,34 @@ export default class Main extends Component {
   render() {
 
     return (
-      <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+      <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Image style={logo.logoIcon} source={require('../img/loginpage/bitmap2x.png')} />
-          <Image style={logo.logoTxt} source={require('../img/loginpage/logo2x.png')} />
+        <View style={logo.logoView}>
+          <Image style={logo.logoIcon} source={require('../assets/img/loginpage/bitmap.png')} />
+          <Image style={logo.logoTxt} source={require('../assets/img/loginpage/logo.png')} />
         </View>
-        <View Style={{ alignItems: 'center', justifyContent: 'center' }}>
+        <View Style={btnImg.btnView}>
           <TouchableOpacity
             onPress={() => this.facebookLogin()}>
-            <Image style={btnImg.facebookJoinBtn} source={require('../img/loginpage/facebook2x.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('ComponentTest')}>
-            <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+            <Image style={btnImg.facebookJoinBtn} source={require('../assets/img/loginpage/facebook.png')} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.naverLogin()}>
-            <Image style={btnImg.naverJoinBtn} source={require('../img/loginpage/naver2x.png')} />
+            <Image style={btnImg.naverJoinBtn} source={require('../assets/img/loginpage/naver.png')} />
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.kakaoLogin()}>
-            <Image style={btnImg.kakaoJoinBtn} source={require('../img/loginpage/kakao2x.png')} />
+            <Image style={btnImg.kakaoJoinBtn} source={require('../assets/img/loginpage/kakao.png')} />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate('ComponentTest')}>
+            <Text>Componnent Test Page</Text>
           </TouchableOpacity>
         </View>
-        <Text style={styles.instructions}>{instructions}</Text>
-        <Text style={styles.joinEmail}>{joinEmail}</Text>
+        <View style={{alignItems: 'center'}}>
+          <Text style={styles.instructions}>{instructions}</Text>
+          <Text style={styles.joinEmail}>{joinEmail}</Text>
+        </View>
 
       </View>
     );
@@ -127,8 +129,10 @@ export default class Main extends Component {
 
 
 const logo = StyleSheet.create({
+  logoView: {
+    alignItems: 'center'
+  },
   logoIcon: {
-
     // marginTop: 80
   },
   logoTxt: {
@@ -140,10 +144,16 @@ const logo = StyleSheet.create({
 });
 
 const btnImg = StyleSheet.create({
+  btnView: {
+    height:'100%',
+    width : '100%',
+    alignItems: 'center',
+    justifyContent: 'center'
+    
+  },
   facebookJoinBtn: {
     height: 48,
     marginBottom: 10,
-
   },
   naverJoinBtn: {
     height: 48,
@@ -157,14 +167,14 @@ const btnImg = StyleSheet.create({
 });
 
 const styles = StyleSheet.create({
-
+  container: {
+    marginTop:50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%'
+  },
   joinEmail: {
     color: "grey"
-  },
-
-  container: {
-    flex: 1,
-    backgroundColor: 'pink',
   },
   instructions: {
     color: '#333333',

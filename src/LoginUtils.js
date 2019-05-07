@@ -3,7 +3,7 @@ import { NaverLogin, getProfile } from 'react-native-naver-login';
 export const fbAuth = async () => {
     try {
         let result = null;
-        const profile = await LoginManager.logInWithReadPermissions(['public_profile']);
+        const profile = await LoginManager.logInWithReadPermissions(['public_profile','email', 'user_age_range','user_gender']);
         if (profile.isCancelled) {
             console.log('Login was cancelled')
             return null;
@@ -23,7 +23,7 @@ export const fbAuth = async () => {
 
 const _fbinitUser = async (token) => {
     try {
-        const response = await fetch('https://graph.facebook.com/v2.5/me?fields=email,name,friends&access_token=' + token);
+        const response = await fetch('https://graph.facebook.com/v3.3/me?fields=email,name&access_token=' + token);
         const res = await response.json();
         // console.log(res)
         let user = {};
@@ -54,14 +54,17 @@ const initials = {
   };
   export const naverLoginStart = async () => {
     console.log('  naverLoginStart');
-    NaverLogin.login(initials, (err, token) => {
+    let result = await NaverLogin.login(initials, async (err, token) => {
       console.log(initials);
       console.log(token);
       if (err) {
         // console.log(err);
       }
-      return getNaverProgile(token);
+      
+      return await getNaverProgile(token);;
     });
+    
+    return result
   }
 
   
