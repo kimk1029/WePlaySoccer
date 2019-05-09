@@ -25,6 +25,6 @@ export default createAppContainer(
             App: HomeNavigator
         },
         {
-            initialRouteName: 'App'
+            initialRouteName: 'Auth'
         })
 );
