@@ -98,6 +98,7 @@ export default class Main extends Component {
         <View style={logo.logoView}>
           <Image style={logo.logoIcon} source={require('../assets/img/loginpage/bitmap.png')} />
           <Image style={logo.logoTxt} source={require('../assets/img/loginpage/logo.png')} />
+          <Text style ={logo.logoSubTxt}>발롱도르를 위한 최고의 도전.</Text>
         </View>
         <View Style={btnImg.btnView}>
           <TouchableOpacity
@@ -117,7 +118,7 @@ export default class Main extends Component {
             <Text>Componnent Test Page</Text>
           </TouchableOpacity>
         </View>
-        <View style={{alignItems: 'center'}}>
+        <View style={{alignItems: 'center' ,marginBottom:80}}>
           <Text style={styles.instructions}>{instructions}</Text>
           <Text style={styles.joinEmail}>{joinEmail}</Text>
         </View>
@@ -137,8 +138,11 @@ const logo = StyleSheet.create({
   },
   logoTxt: {
     marginTop: 30,
-    marginBottom: 200,
+    marginBottom: 20,
     height: 23
+  },
+  logoSubTxt : {
+    marginBottom: 160
   }
 
 });

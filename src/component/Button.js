@@ -11,10 +11,17 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      press : false
     }
   }
-
+  setOpacity(){
+    if(this.state.press){
+      alert("222")
+      return 1;
+    }else{
+      return 0;
+    }
+  }
   render() {
     const pad = this.props.padding? this.props.padding : 3;
     const fontSize = this.props.fontSize? this.props.fontSize : 16; 
@@ -30,7 +37,10 @@ export default class Button extends Component {
 
     return (
       <TouchableOpacity
-        style={[styles.button,{padding: pad},{backgroundColor:btnColor()},this.props.style]}
+        style={[styles.button, {padding: pad},  this.props.style,{backgroundColor:btnColor()}  ]}
+        onPressIn={()=>this.setState({press : true})}
+        onPressOut={()=>this.setState({press : false})}
+        activeOpacity={()=>this.setOpacity()}
         onPress={this.props.onPress}>
         <Text style={[styles.btnTxt,{fontSize:fontSize}]}>
           {this.props.buttonText}
@@ -46,6 +56,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     justifyContent:'center',
     alignItems:'center'
+    
   },
   btnTxt : {
     color: '#000000',
