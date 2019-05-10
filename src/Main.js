@@ -20,6 +20,8 @@ const instructions = Platform.select({
   android:
     'android'
 });
+const axios = require('axios');
+
 
 
 
@@ -42,7 +44,6 @@ export default class Main extends Component {
         console.log(err);
         return;
       }
-
       this.getProfile();
     });
   }
@@ -66,8 +67,9 @@ export default class Main extends Component {
         console.log(err);
         return;
       }
-      this.props.navigation.navigate('JoinMember');
       console.log(result);
+      this.props.navigation.navigate('JoinMember');
+
     });
   }
 
