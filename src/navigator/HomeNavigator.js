@@ -85,6 +85,7 @@ const HomeNavigator = createBottomTabNavigator({
                 backgroundColor: '#ffffff',
             },
         },
+        navigationOptions: ({navigation}) => (console.log(navigation))
     }
 );
 
