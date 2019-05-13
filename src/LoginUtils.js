@@ -52,19 +52,27 @@ const initials = {
     kServiceAppName: 'WePlaySoccer',
     kServiceAppUrlScheme: 'naverlogin_weplaysoccer', // only for iOS
   };
-  export const naverLoginStart = async () => {
-    console.log('  naverLoginStart');
-    let result = await NaverLogin.login(initials, async (err, token) => {
-      console.log(initials);
-      console.log(token);
-      if (err) {
-        // console.log(err);
-      }
+  // export const naverLoginStart = async () => {
+  //   console.log('  naverLoginStart');
+  //   let result = await NaverLogin.login(initials, async (err, token) => {
+  //     console.log(initials);
+  //     console.log(token);
+  //     if (err) {
+  //       // console.log(err);
+  //     }
       
-      return await getNaverProgile(token);;
-    });
+  //     return await getNaverProgile(token);;
+  //   });
     
-    return result
+  //   return result
+  // }
+  export const naverLoginStart = async ()=>{
+    return new Promise((resolve, reject)=>{
+      NaverLogin.login(initials, (err, token)=>{
+        if( err ) reject( err );
+        else resolve(getNaverProgile(token));
+      });
+     });
   }
 
   
