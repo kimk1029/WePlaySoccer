@@ -13,7 +13,7 @@ import {
   Alert,
   Button
 } from 'react-native';
-import RNKakaoLogins from 'react-native-kakao-logins';
+
 import * as utils from './LoginUtils';
 const instructions = Platform.select({
   ios: 'IOS',
@@ -34,58 +34,33 @@ export default class Main extends Component {
     };
   }
 
-  // 카카오 로그인 시작.
-  kakaoLogin() {
-    console.log('   kakaoLogin-------------->   ');
-    RNKakaoLogins.login((err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
 
-      this.getProfile();
-    });
-  }
-
-  kakaoLogout() {
-    console.log('   kakaoLogout   ');
-    RNKakaoLogins.logout((err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
-      Alert.alert('result', result);
-    });
-  }
-
-  // 로그인 후 내 프로필 가져오기.
-  getProfile() {
-    console.log('getKakaoProfile');
-    RNKakaoLogins.getProfile((err, result) => {
-      if (err) {
-        console.log(err);
-        return;
-      }
+  kakaoLogin = async () => {
+    const result = await utils.kakaoLogin();
+    this.setState({user : result})
+    console.log("-------------------Kakao->email");
+    console.log(this.state.user.email);
+    if(!!this.state.user.email){
       this.props.navigation.navigate('JoinMember');
-      console.log(result);
-    });
+    }
   }
-
   naverLogin = async () => {
-    const user = await utils.naverLoginStart();
-    console.log(user);
-    if (!!user) {
-      // this.props.history.push('/joinMember');
+    const result = await utils.naverLoginStart();
+    this.setState({user : result.response})
+    console.log("-------------------Naver->email");
+    console.log(this.state.user.email);
+    if (!!this.state.user.email) {
       this.props.navigation.navigate('JoinMember');
     }
 
   }
 
   facebookLogin = async () => {
-    const user = await utils.fbAuth();
-    console.log(user);
-    if (!!user) {
-      // this.props.history.push('/joinMember');
+    const result = await utils.fbAuth();
+    this.setState({user : result})
+    console.log("-------------------Facebook->email");
+    console.log(this.state.user.email);
+    if (!!this.state.user.email) {
       this.props.navigation.navigate('JoinMember');
     }
   }
