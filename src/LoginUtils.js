@@ -1,5 +1,55 @@
 import FBSDK, { LoginManager, AccessToken } from 'react-native-fbsdk';
 import { NaverLogin, getProfile } from 'react-native-naver-login';
+import RNKakaoLogins from 'react-native-kakao-logins';
+
+  // 카카오 로그인 시작.
+  export const kakaoLogin = async() => {
+    console.log('   kakaoLogin-------------->   ');
+    return new Promise((resolve, reject)=>{
+      RNKakaoLogins.login((err, result) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }else{
+          resolve (kakaoGetProfile());
+        } 
+      });
+    })
+  
+  }
+
+  const kakaoLogout = () => {
+    console.log('   kakaoLogout   ');
+    RNKakaoLogins.logout((err, result) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      Alert.alert('result', result);
+    });
+  }
+
+  // 로그인 후 내 프로필 가져오기.
+  const kakaoGetProfile = async() => {
+    console.log('getKakaoProfile');
+    return new Promise((resolve,reject)=>{
+      RNKakaoLogins.getProfile((err, result) => {
+        if (err) {
+          console.log(err);
+          reject(err);
+        }else{
+          resolve(result);
+        }
+        
+        // this.props.navigation.navigate('JoinMember');
+        // console.log(result);
+      });
+    })
+    
+  }
+
+
+
 export const fbAuth = async () => {
     try {
         let result = null;
@@ -52,19 +102,27 @@ const initials = {
     kServiceAppName: 'WePlaySoccer',
     kServiceAppUrlScheme: 'naverlogin_weplaysoccer', // only for iOS
   };
-  export const naverLoginStart = async () => {
-    console.log('  naverLoginStart');
-    let result = await NaverLogin.login(initials, async (err, token) => {
-      console.log(initials);
-      console.log(token);
-      if (err) {
-        // console.log(err);
-      }
+  // export const naverLoginStart = async () => {
+  //   console.log('  naverLoginStart');
+  //   let result = await NaverLogin.login(initials, async (err, token) => {
+  //     console.log(initials);
+  //     console.log(token);
+  //     if (err) {
+  //       // console.log(err);
+  //     }
       
-      return await getNaverProgile(token);;
-    });
+  //     return await getNaverProgile(token);;
+  //   });
     
-    return result
+  //   return result
+  // }
+  export const naverLoginStart = async ()=>{
+    return new Promise((resolve, reject)=>{
+      NaverLogin.login(initials, (err, token)=>{
+        if( err ) reject( err );
+        else resolve(getNaverProgile(token));
+      });
+     });
   }
 
   
