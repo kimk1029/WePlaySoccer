@@ -26,8 +26,7 @@ export default class JoinMember extends Component {
     super(props);
     this.state = { 
       text: 'Useless Placeholder',
-      name: '박진성',
-      username : '김무열',
+      name: '',
       age: '1989(30)'
    };
   }
@@ -35,9 +34,10 @@ export default class JoinMember extends Component {
 
   render() {
     return (
+      
       <View style={styles.container}>
       <StatusBar barStyle="light-content"></StatusBar>
-        <Text style={styles.layer}>환영합니다.</Text>
+        <Text style={styles.layer}>환영합니다. ({this.props.navigation.getParam('uid')})</Text>
 
 
         <View style={styles.cardTop}>
@@ -45,7 +45,7 @@ export default class JoinMember extends Component {
           <TextInput
             style={styles.txtStyle}
             onChangeText={(text) => this.setState({text})}
-            value={"kimk1029@naver.com"}
+            value={this.props.navigation.getParam('email')}
         />
        </View>
 
@@ -55,7 +55,7 @@ export default class JoinMember extends Component {
          <TextInput
             style={styles.inputStyle}
             onChangeText={(username) => this.setState({username})}
-            value={this.state.username}
+            value={this.props.navigation.getParam('userName')}
         />
         <Text style={styles.txt}>이름</Text>
          <TextInput
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     height: 54,
     
     // fontFamily: "NotoSansCJKkr",
-    fontSize: 36,
+    fontSize: 22,
     fontWeight: "bold",
     fontStyle: "normal",
     letterSpacing: 0,

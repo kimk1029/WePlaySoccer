@@ -4,6 +4,7 @@ import Button from './component/Button';
 import Input from './component/Input';
 import Dropdown from './component/Dropdown';
 import Draggable from './component/Draggable';
+import FlowBtn from './component/FlowBtn';
 export default class ComponentTest extends Component {
     constructor(props) {
         super(props);
@@ -12,7 +13,7 @@ export default class ComponentTest extends Component {
     render() {
         return (
             <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center' }}>
-                <View style={{ justifyContent: "flex-end" }}>
+                <View>
                     <Button
                         buttonText={"확인"} type={'confirm'} style={styles.btnStyle} onPress={() => { this.props.navigation.navigate('dragTest') }}></Button>
                     <Button
@@ -20,6 +21,7 @@ export default class ComponentTest extends Component {
                 </View>
                 <Input style={styles.iptStyle}></Input>
                 <Dropdown></Dropdown>
+                <FlowBtn></FlowBtn>
             </View>
         );
     }

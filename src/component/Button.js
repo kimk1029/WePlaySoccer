@@ -14,14 +14,6 @@ export default class Button extends Component {
       press : false
     }
   }
-  setOpacity(){
-    if(this.state.press){
-      alert("222")
-      return 1;
-    }else{
-      return 0;
-    }
-  }
   render() {
     const pad = this.props.padding? this.props.padding : 3;
     const fontSize = this.props.fontSize? this.props.fontSize : 16; 
@@ -40,11 +32,12 @@ export default class Button extends Component {
         style={[styles.button, {padding: pad},  this.props.style,{backgroundColor:btnColor()}  ]}
         onPressIn={()=>this.setState({press : true})}
         onPressOut={()=>this.setState({press : false})}
-        activeOpacity={()=>this.setOpacity()}
         onPress={this.props.onPress}>
         <Text style={[styles.btnTxt,{fontSize:fontSize}]}>
           {this.props.buttonText}
         </Text>
+        <Text>{this.state.press}</Text>
+        
       </TouchableOpacity>
     );
   }

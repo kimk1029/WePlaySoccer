@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 
 import * as utils from './LoginUtils';
+
 const instructions = Platform.select({
   ios: 'IOS',
   android:
@@ -39,9 +40,13 @@ export default class Main extends Component {
     const result = await utils.kakaoLogin();
     this.setState({user : result})
     console.log("-------------------Kakao->email");
-    console.log(this.state.user.email);
+    console.log(this.state.user);
     if(!!this.state.user.email){
-      this.props.navigation.navigate('JoinMember');
+      this.props.navigation.navigate('JoinMember',{
+        uid : this.state.user.id,
+        email : this.state.user.email,
+        userName : this.state.user.nickname
+      });
     }
   }
 
@@ -49,9 +54,13 @@ export default class Main extends Component {
     const result = await utils.naverLoginStart();
     this.setState({user : result.response})
     console.log("-------------------Naver->email");
-    console.log(this.state.user.email);
+    console.log(this.state.user);
     if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember');
+      this.props.navigation.navigate('JoinMember',{
+        uid : this.state.user.id,
+        email : this.state.user.email,
+        userName : this.state.user.nickname
+      });
     }
 
   };
@@ -60,9 +69,13 @@ export default class Main extends Component {
     const result = await utils.fbAuth();
     this.setState({user : result});
     console.log("-------------------Facebook->email");
-    console.log(this.state.user.email);
+    console.log(this.state.user);
     if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember');
+      this.props.navigation.navigate('JoinMember',{
+        uid : this.state.user.id,
+        email : this.state.user.email,
+        userName : this.state.user.username
+      });
     }
   };
 
