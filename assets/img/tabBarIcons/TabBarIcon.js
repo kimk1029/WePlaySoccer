@@ -1,1 +1,1 @@
-export const HomeActive = require('assets/img/tabBarIcons/TabBarIconHomeActive.png');
+export const HomeActive = require('assets/img/tabBarIcons/TabBarIconHomeActive.png')

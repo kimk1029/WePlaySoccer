@@ -1,4 +1,4 @@
 export const Fonts = {
-    BMHANNAPro : "BMHANNAPro",
-    NotoSansCJKkrReg : "NotoSansCJKkr-Regular"
+  BMHANNAPro: 'BMHANNAPro',
+  NotoSansCJKkrReg: 'NotoSansCJKkr-Regular'
 }
