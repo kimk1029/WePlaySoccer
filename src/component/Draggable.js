@@ -1,86 +1,83 @@
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  View,
-  PanResponder,
-  Animated,
-  Text
-} from 'react-native'
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { Component } from 'react';
+import { StyleSheet, View, PanResponder, Animated, Text } from 'react-native';
 
 export default class Draggable extends Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
       showDraggable: true,
       dropZoneValues: null,
-      pan: new Animated.ValueXY()
-    }
+      pan: new Animated.ValueXY(),
+    };
+
+    const {
+      pan: { x, y },
+    } = this.state;
 
     this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([null, {
-        dx: this.state.pan.x,
-        dy: this.state.pan.y
-      }]),
+      onPanResponderMove: Animated.event([
+        null,
+        {
+          dx: x,
+          dy: y,
+        },
+      ]),
       onPanResponderRelease: (e, gesture) => {
         if (this.isDropZone(gesture)) {
           this.setState({
-            showDraggable: false
-          })
-        } else {
-
+            showDraggable: false,
+          });
         }
-      }
-    })
+      },
+    });
   }
 
-  isDropZone (gesture) {
-    var dz = this.state.dropZoneValues
-    return gesture.moveY > dz.y && gesture.moveY < dz.y + dz.height
-  }
+  isDropZone = gesture => {
+    const { dropZoneValues } = this.state;
+    const dz = dropZoneValues;
+    return gesture.moveY > dz.y && gesture.moveY < dz.y + dz.height;
+  };
 
-  setDropZoneValues (event) {
+  setDropZoneValues = event => {
     this.setState({
-      dropZoneValues: event.nativeEvent.layout
-    })
-  }
+      dropZoneValues: event.nativeEvent.layout,
+    });
+  };
 
-  render () {
-    return (
-      <View style={styles.mainContainer}>
-        <View
-          onLayout={this.setDropZoneValues.bind(this)}
-          style={styles.dropZone}>
-          <Text style={styles.text}>Drop me here!</Text>
-        </View>
-
-        {this.renderDraggable()}
-      </View>
-    )
-  }
-
-  renderDraggable () {
-    if (this.state.showDraggable) {
+  renderDraggable = () => {
+    const { showDraggable, pan } = this.state;
+    if (showDraggable) {
       return (
         <View style={styles.draggableContainer}>
-          <Animated.View
-            {...this.panResponder.panHandlers}
-            style={[this.state.pan.getLayout(), styles.circle]}>
+          <View {...this.panResponder.panHandlers} style={[pan.getLayout(), styles.circle]}>
             <Text style={styles.text}>Drag me!</Text>
-          </Animated.View>
+          </View>
         </View>
-      )
+      );
     }
+  };
+
+  render() {
+    return (
+      <View style={styles.mainContainer}>
+        <View onLayout={this.setDropZoneValues} style={styles.dropZone}>
+          <Text style={styles.text}>Drop me here!</Text>
+        </View>
+        {this.renderDraggable()}
+      </View>
+    );
   }
 }
 
-let CIRCLE_RADIUS = 30
-let styles = StyleSheet.create({
+const CIRCLE_RADIUS = 30;
+const styles = StyleSheet.create({
   circle: {
     backgroundColor: 'skyblue',
     width: CIRCLE_RADIUS * 2,
     height: CIRCLE_RADIUS * 2,
-    borderRadius: CIRCLE_RADIUS
-  }
-})
+    borderRadius: CIRCLE_RADIUS,
+  },
+});

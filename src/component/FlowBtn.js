@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { StyleSheet, TouchableOpacity, Text, Dimensions, View } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+
 export default class FlowBtn extends Component {
   /**
    *
@@ -8,47 +9,34 @@ export default class FlowBtn extends Component {
    * @param buttonText
    * @param onPress
    */
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      press: false
-    }
+      press: false,
+    };
   }
-  render () {
-    const pad = this.props.padding ? this.props.padding : 3
-    const fontSize = this.props.fontSize ? this.props.fontSize : 16
+
+  render() {
+    const { padding = 3, fontSize = 16, type, onPress, style } = this.props;
 
     const btnColor = () => {
-      if (this.props.type == 'cancel') {
-        console.log('canc222el')
-        return '#f74b41'
-      } else {
-        return '#42f77b'
+      if (type === 'cancel') {
+        console.log('canc222el');
+        return '#f74b41';
       }
-    }
+      return '#42f77b';
+    };
 
     return (
       <View style={styles.flowView}>
-        <TouchableOpacity
-          style={[styles.button, { padding: pad }, this.props.style, { backgroundColor: '#f74b41' }]}
-
-          onPress={this.props.onPress}>
-          <Text style={[styles.btnTxt, { fontSize: fontSize }]}>
-           취소
-          </Text>
-
+        <TouchableOpacity style={[styles.button, style, { backgroundColor: '#f74b41', padding }]} onPress={onPress}>
+          <Text style={[styles.btnTxt, { fontSize }]}>취소</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.button, { padding: pad }, this.props.style, { backgroundColor: '#42f77b' }]}
-
-          onPress={this.props.onPress}>
-          <Text style={[styles.btnTxt, { fontSize: fontSize }]}>
-            확인
-          </Text>
-
+        <TouchableOpacity style={[styles.button, style, { backgroundColor: '#42f77b', padding }]} onPress={onPress}>
+          <Text style={[styles.btnTxt, { fontSize }]}>확인</Text>
         </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
@@ -61,16 +49,15 @@ const styles = StyleSheet.create({
 
     justifyContent: 'flex-end',
     bottom: 0,
-    flex: 1
+    flex: 1,
   },
   button: {
     position: 'absolute',
     borderRadius: 3,
     marginLeft: 5,
-    alignItems: 'center'
-
+    alignItems: 'center',
   },
   btnTxt: {
-    color: '#000000'
-  }
-})
+    color: '#000000',
+  },
+});
