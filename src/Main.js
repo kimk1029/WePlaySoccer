@@ -38,28 +38,28 @@ export default class Main extends Component {
 
   kakaoLogin = async () => {
     const result = await utils.kakaoLogin();
-    this.setState({user : result})
+    this.setState({ user: result })
     console.log("-------------------Kakao->email");
     console.log(this.state.user);
-    if(!!this.state.user.email){
-      this.props.navigation.navigate('JoinMember',{
-        uid : this.state.user.id,
-        email : this.state.user.email,
-        userName : this.state.user.nickname
+    if (!!this.state.user.email) {
+      this.props.navigation.navigate('JoinMember', {
+        uid: this.state.user.id,
+        email: this.state.user.email,
+        userName: this.state.user.nickname
       });
     }
   }
 
   naverLogin = async () => {
     const result = await utils.naverLoginStart();
-    this.setState({user : result.response})
+    this.setState({ user: result.response })
     console.log("-------------------Naver->email");
     console.log(this.state.user);
     if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember',{
-        uid : this.state.user.id,
-        email : this.state.user.email,
-        userName : this.state.user.nickname
+      this.props.navigation.navigate('JoinMember', {
+        uid: this.state.user.id,
+        email: this.state.user.email,
+        userName: this.state.user.nickname
       });
     }
 
@@ -67,14 +67,14 @@ export default class Main extends Component {
 
   facebookLogin = async () => {
     const result = await utils.fbAuth();
-    this.setState({user : result});
+    this.setState({ user: result });
     console.log("-------------------Facebook->email");
     console.log(this.state.user);
     if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember',{
-        uid : this.state.user.id,
-        email : this.state.user.email,
-        userName : this.state.user.username
+      this.props.navigation.navigate('JoinMember', {
+        uid: this.state.user.id,
+        email: this.state.user.email,
+        userName: this.state.user.username
       });
     }
   };
@@ -87,7 +87,7 @@ export default class Main extends Component {
         <View style={logo.logoView}>
           <Image style={logo.logoIcon} source={require('../assets/img/loginpage/bitmap.png')} />
           <Image style={logo.logoTxt} source={require('../assets/img/loginpage/logo.png')} />
-          <Text style ={logo.logoSubTxt}>발롱도르를 위한 최고의 도전.</Text>
+          <Text style={logo.logoSubTxt}>발롱도르를 위한 최고의 도전.</Text>
         </View>
         <View Style={btnImg.btnView}>
           <TouchableOpacity
@@ -107,7 +107,7 @@ export default class Main extends Component {
             <Text>Componnent Test Page</Text>
           </TouchableOpacity>
         </View>
-        <View style={{alignItems: 'center' ,marginBottom:80}}>
+        <View style={{ alignItems: 'center', marginBottom: 80 }}>
           <Text style={styles.instructions}>{instructions}</Text>
           <Text style={styles.joinEmail}>{joinEmail}</Text>
         </View>
@@ -130,7 +130,7 @@ const logo = StyleSheet.create({
     marginBottom: 20,
     height: 23
   },
-  logoSubTxt : {
+  logoSubTxt: {
     marginBottom: 160
   }
 
@@ -138,11 +138,11 @@ const logo = StyleSheet.create({
 
 const btnImg = StyleSheet.create({
   btnView: {
-    height:'100%',
-    width : '100%',
+    height: '100%',
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center'
-    
+
   },
   facebookJoinBtn: {
     height: 48,
@@ -161,7 +161,7 @@ const btnImg = StyleSheet.create({
 
 const styles = StyleSheet.create({
   container: {
-    marginTop:50,
+    marginTop: 50,
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%'

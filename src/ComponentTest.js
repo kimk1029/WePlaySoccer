@@ -4,24 +4,24 @@ import Button from './component/Button'
 import Input from './component/Input'
 import Dropdown from './component/Dropdown'
 import Draggable from './component/Draggable'
-import FlowBtn from './component/FlowBtn'
+import FlowButton from './component/FlowButton'
 export default class ComponentTest extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { text: 'Useless Placeholder', language: '' }
   }
-  render () {
+  render() {
     return (
       <View style={{ marginTop: 50, justifyContent: 'center', alignItems: 'center' }}>
         <View>
           <Button
             buttonText={'확인'} type={'confirm'} style={styles.btnStyle} onPress={() => { this.props.navigation.navigate('dragTest') }} />
           <Button
-            buttonText={'취소'} type={'cancel'} style={styles.btnStyle} />
+            buttonText={'취소'} type={'cancel'} style={styles.btnStyle} onPress={() => { this.props.navigation.navigate('JoinMember') }} />
         </View>
         <Input style={styles.iptStyle} />
         <Dropdown />
-        <FlowBtn />
+
       </View>
     )
   }

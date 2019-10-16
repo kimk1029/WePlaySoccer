@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, Text, Dimensions } from 'react-native'
-export default class Button extends Component {
+export default class FlowButton extends Component {
 /**
  *
  * @param padding
@@ -44,10 +44,9 @@ export default class Button extends Component {
 
 const styles = StyleSheet.create({
   button: {
-    marginLeft: 5,
     justifyContent: 'center',
-    alignItems: 'center'
-
+    alignItems: 'center',
+    flex : 1
   },
   btnTxt: {
     color: '#000000'
