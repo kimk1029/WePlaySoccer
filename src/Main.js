@@ -36,21 +36,57 @@ export default class Main extends Component {
   };
 
   kakaoLogin = async () => {
+    const { user } = this.state;
+    const { email, id, nickname } = user;
+    const { navigation } = this.props;
     console.log('-------------------Kakao->email');
     const result = await utils.kakaoLogin();
-    this.onLogin(result);
+    this.setState({ user: result });
+    console.log('-------------------Kakao->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: nickname,
+      });
+    }
   };
 
   naverLogin = async () => {
+    const { user } = this.state;
+    const { email, id, nickname } = user;
+    const { navigation } = this.props;
     console.log('-------------------Naver->email');
     const result = await utils.naverLoginStart();
-    this.onLogin(result.response);
+    this.setState({ user: result.response });
+    console.log('-------------------Naver->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: nickname,
+      });
+    }
   };
 
   facebookLogin = async () => {
+    const { user } = this.state;
+    const { email, id, username } = user;
+    const { navigation } = this.props;
     console.log('-------------------Facebook->email');
     const result = await utils.fbAuth();
-    this.onLogin(result);
+    this.setState({ user: result });
+    console.log('-------------------Facebook->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: username,
+      });
+    }
   };
 
   render() {

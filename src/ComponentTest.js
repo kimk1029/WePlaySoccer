@@ -3,7 +3,6 @@ import { View, StyleSheet } from 'react-native';
 import Button from './component/Button';
 import Input from './component/Input';
 import Dropdown from './component/Dropdown';
-import FlowBtn from './component/FlowBtn';
 
 export default class ComponentTest extends Component {
   render() {
@@ -18,11 +17,15 @@ export default class ComponentTest extends Component {
             style={styles.btnStyle}
             onPress={() => navigation.navigate('dragTest')}
           />
-          <Button buttonText="취소" type="cancel" style={styles.btnStyle} />
+          <Button
+            buttonText="취소"
+            type="cancel"
+            style={styles.btnStyle}
+            onPress={() => navigation.navigate('JoinMember')}
+          />
         </View>
         <Input style={styles.iptStyle} />
         <Dropdown />
-        <FlowBtn />
       </View>
     );
   }
