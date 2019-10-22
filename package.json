@@ -7,6 +7,7 @@
     "start": "react-native start",
     "android": "react-native run-android",
     "test": "jest",
+    "precommit": "lint-staged",
     "bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res"
   },
   "rnpm": {
@@ -29,12 +30,33 @@
     "react-navigation": "^3.8.1"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.3",
     "babel-jest": "23.6.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "^22.17.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "eslint-plugin-react-native": "^3.7.0",
+    "husky": "^3.0.8",
     "jest": "23.6.0",
+    "lint-staged": "^9.4.1",
     "metro-react-native-babel-preset": "0.51.1",
+    "prettier": "^1.18.2",
     "react-test-renderer": "16.6.3"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   }
 }

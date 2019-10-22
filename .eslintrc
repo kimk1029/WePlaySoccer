@@ -1,0 +1,93 @@
+{
+  "env": {
+    "node": true, // this is the best starting point
+    "browser": true, // for react web
+    "es6": true // enables es6 features
+  },
+  "parser": "babel-eslint", // needed to make babel stuff work properly
+  "extends": "airbnb",
+  "plugins": [
+    "react",
+    "react-native",
+    "jest"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "rules": {
+    "indent": [2, 2, {
+      "SwitchCase": 1
+    }],
+    "requireSemicolons": "off",
+    "global-require": "off",
+    "arrow-body-style": "off",
+    "vars-on-top": "off",
+    "prefer-arrow-callback": "warn",
+    "strict": "warn",
+    "no-var": "warn",
+    "no-console": "off",
+    "prefer-template": "off",
+    "spaced-comment": "off",
+    "max-len": "off",
+    "arrow-parens": "off",
+    "quotes": "off",
+    "no-param-reassign": "off",
+    "no-undef": "warn",
+    "consistent-return": "off",
+    "no-unused-vars": "warn",
+    "no-use-before-define": "off",
+    "comma-dangle": "off",
+    "camelcase": "off",
+    "no-mixed-operators": "warn",
+    "object-shorthand": "warn",
+    "no-multiple-empty-lines": "off",
+    "no-underscore-dangle": "off",
+    "func-names": "off",
+    "prefer-const": "off",
+    "padded-blocks": "off",
+    "eqeqeq": "warn",
+    "no-trailing-spaces": "off",
+    "no-shadow": "off",
+    "object-curly-spacing": "off",
+    "array-callback-return": "off",
+    "quote-props": "off",
+    "eol-last": "off",
+    "generator-star-spacing": "off",
+    "function-paren-newline": "off",
+    "no-restricted-syntax": "off",
+    "class-methods-use-this": "off",
+    "no-plusplus": "off",
+    "object-curly-newline": "off",
+    "no-return-assign": "warn",
+    "prefer-destructuring": "warn",
+    "import/prefer-default-export": "warn",
+    "no-lonely-if": "warn",
+    "no-loop-func": "warn",
+    "no-nested-ternary": "warn",
+    "no-else-return": "off",
+    // rules for react
+    "react/jsx-no-bind": "warn",
+    "react/no-array-index-key": "warn",
+    "react/no-unused-state": "warn",
+    "react/no-multi-comp": "warn",
+    "react/jsx-closing-bracket-location": "off",
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": "off",
+    "react/forbid-prop-types": "off",
+    "react/prefer-stateless-function": "off",
+    "react/require-default-props": "off",
+    "react/no-string-refs": "warn",
+    "react/sort-comp": [1, {
+      "order": [
+        "static-methods",
+        "lifecycle",
+        "everything-else",
+        "render"
+      ]
+    }]
+  }
+}

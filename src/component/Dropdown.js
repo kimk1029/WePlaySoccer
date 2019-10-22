@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, TouchableOpacity, Text, Dimensions, Picker } from 'react-native';
+import { StyleSheet, Picker } from 'react-native';
+
 export default class Dropdown extends Component {
   /**
-   * 
+   *
    * @param padding
    * @param fontSize
    * @param buttonText
@@ -11,23 +12,25 @@ export default class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: ""
-    }
+      user: '',
+    };
   }
-  updateUser = (user) => {
-    this.setState({ user: user })
-  }
+
+  updateUser = user => {
+    this.setState({ user });
+  };
+
   isYear = () => {
     for (let index = 1950; index < 2019; index++) {
-      const element = array[index];
+      // const element = array[index];
     }
-  }
+  };
 
   render() {
-
+    const { user } = this.state;
 
     return (
-      <Picker selectedValue={this.state.user} onValueChange={this.updateUser}>
+      <Picker selectedValue={user} onValueChange={this.updateUser}>
         <Picker.Item label="1990" value="1990" />
         <Picker.Item label="1989" value="1989" />
         <Picker.Item label="1988" value="1988" />
@@ -42,9 +45,9 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginLeft: 5,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   btnTxt: {
     color: '#000000',
-  }
-})
+  },
+});

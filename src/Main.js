@@ -1,85 +1,96 @@
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  StatusBar,
-  TextInput,
-  Dimensions,
-  Image,
-  TouchableOpacity,
-  NativeButton,
-  Alert,
-  Button
-} from 'react-native';
-
+import { Platform, StyleSheet, Text, View, StatusBar, Image, TouchableOpacity } from 'react-native';
 import * as utils from './LoginUtils';
 
 const instructions = Platform.select({
   ios: 'IOS',
-  android:
-    'android'
+  android: 'android',
 });
-
-
 
 const joinEmail = 'Weplay를 처음 방문하셨다면?? 회원가입을 클릭하세요';
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isKakaoLogging: false,
-      token: 'token has not fetched',
+      // isKakaoLogging: false,
+      // token: 'token has not fetched',
       user: null,
     };
   }
 
+  onLogin = user => {
+    console.log(user);
+    this.setState({ user }, () => {
+      const { navigation } = this.props;
+      const {
+        user: { email = 'default@email.com', id: uid, nickname: userName },
+      } = this.state;
+      if (uid) {
+        navigation.navigate('JoinMember', {
+          uid,
+          email,
+          userName,
+        });
+      }
+    });
+  };
 
   kakaoLogin = async () => {
+    const { user } = this.state;
+    const { email, id, nickname } = user;
+    const { navigation } = this.props;
+    console.log('-------------------Kakao->email');
     const result = await utils.kakaoLogin();
-    this.setState({ user: result })
-    console.log("-------------------Kakao->email");
-    console.log(this.state.user);
-    if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember', {
-        uid: this.state.user.id,
-        email: this.state.user.email,
-        userName: this.state.user.nickname
+    this.setState({ user: result });
+    console.log('-------------------Kakao->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: nickname,
       });
     }
-  }
+  };
 
   naverLogin = async () => {
+    const { user } = this.state;
+    const { email, id, nickname } = user;
+    const { navigation } = this.props;
+    console.log('-------------------Naver->email');
     const result = await utils.naverLoginStart();
-    this.setState({ user: result.response })
-    console.log("-------------------Naver->email");
-    console.log(this.state.user);
-    if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember', {
-        uid: this.state.user.id,
-        email: this.state.user.email,
-        userName: this.state.user.nickname
+    this.setState({ user: result.response });
+    console.log('-------------------Naver->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: nickname,
       });
     }
-
   };
 
   facebookLogin = async () => {
+    const { user } = this.state;
+    const { email, id, username } = user;
+    const { navigation } = this.props;
+    console.log('-------------------Facebook->email');
     const result = await utils.fbAuth();
     this.setState({ user: result });
-    console.log("-------------------Facebook->email");
-    console.log(this.state.user);
-    if (!!this.state.user.email) {
-      this.props.navigation.navigate('JoinMember', {
-        uid: this.state.user.id,
-        email: this.state.user.email,
-        userName: this.state.user.username
+    console.log('-------------------Facebook->email');
+    console.log(user);
+    if (email) {
+      navigation.navigate('JoinMember', {
+        uid: id,
+        email,
+        userName: username,
       });
     }
   };
 
   render() {
+    const { navigation } = this.props;
 
     return (
       <View style={styles.container}>
@@ -90,20 +101,16 @@ export default class Main extends Component {
           <Text style={logo.logoSubTxt}>발롱도르를 위한 최고의 도전.</Text>
         </View>
         <View Style={btnImg.btnView}>
-          <TouchableOpacity
-            onPress={() => this.facebookLogin()}>
+          <TouchableOpacity onPress={() => this.facebookLogin()}>
             <Image style={btnImg.facebookJoinBtn} source={require('../assets/img/loginpage/facebook.png')} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.naverLogin()}>
+          <TouchableOpacity onPress={() => this.naverLogin()}>
             <Image style={btnImg.naverJoinBtn} source={require('../assets/img/loginpage/naver.png')} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.kakaoLogin()}>
+          <TouchableOpacity onPress={() => this.kakaoLogin()}>
             <Image style={btnImg.kakaoJoinBtn} source={require('../assets/img/loginpage/kakao.png')} />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate('ComponentTest')}>
+          <TouchableOpacity onPress={() => navigation.navigate('ComponentTest')}>
             <Text>Componnent Test Page</Text>
           </TouchableOpacity>
         </View>
@@ -111,16 +118,14 @@ export default class Main extends Component {
           <Text style={styles.instructions}>{instructions}</Text>
           <Text style={styles.joinEmail}>{joinEmail}</Text>
         </View>
-
       </View>
     );
   }
 }
 
-
 const logo = StyleSheet.create({
   logoView: {
-    alignItems: 'center'
+    alignItems: 'center',
   },
   logoIcon: {
     // marginTop: 80
@@ -128,12 +133,11 @@ const logo = StyleSheet.create({
   logoTxt: {
     marginTop: 30,
     marginBottom: 20,
-    height: 23
+    height: 23,
   },
   logoSubTxt: {
-    marginBottom: 160
-  }
-
+    marginBottom: 160,
+  },
 });
 
 const btnImg = StyleSheet.create({
@@ -141,8 +145,7 @@ const btnImg = StyleSheet.create({
     height: '100%',
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
-
+    justifyContent: 'center',
   },
   facebookJoinBtn: {
     height: 48,
@@ -150,13 +153,12 @@ const btnImg = StyleSheet.create({
   },
   naverJoinBtn: {
     height: 48,
-    marginBottom: 10
+    marginBottom: 10,
   },
   kakaoJoinBtn: {
     height: 48,
-    marginBottom: 10
-  }
-
+    marginBottom: 10,
+  },
 });
 
 const styles = StyleSheet.create({
@@ -164,14 +166,13 @@ const styles = StyleSheet.create({
     marginTop: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100%'
+    height: '100%',
   },
   joinEmail: {
-    color: "grey"
+    color: 'grey',
   },
   instructions: {
     color: '#333333',
-    marginTop: 45
+    marginTop: 45,
   },
-
 });
